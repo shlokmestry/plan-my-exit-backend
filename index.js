@@ -6,11 +6,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// ✅ Add your route setup here
+const planRoutes = require('./routes/plan');
+app.use('/api/plan', planRoutes);
+
 app.get('/', (req, res) => {
   res.send('🚀 Plan My Exit backend is running!');
 });
-
-// Placeholder: we’ll add routes like /api/plan later
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
